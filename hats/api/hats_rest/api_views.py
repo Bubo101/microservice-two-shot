@@ -5,6 +5,12 @@ import json
 from common.json import ModelEncoder
 from .models import Hat, LocationVO
 
+class LocationVOEncoder(ModelEncoder):
+    model = LocationVO
+    properties = [
+        "closet_name",
+        "import_href",
+    ]
 
 class HatListEncoder(ModelEncoder):
     model = Hat
@@ -14,7 +20,11 @@ class HatListEncoder(ModelEncoder):
         "color",
         "picture_url",
         "location",
+        "id",
         ]
+    encoders = {
+        "location": LocationVOEncoder(),
+    }
 
 class HatDetailEncoder(ModelEncoder):
     model = Hat
@@ -25,6 +35,9 @@ class HatDetailEncoder(ModelEncoder):
         "picture_url",
         "location",
         ]
+    encoders = {
+        "location": LocationVOEncoder(),
+    }
 
 
 @require_http_methods(["GET", "POST"])
@@ -70,17 +83,17 @@ def api_hat_details(request, pk):
         content = json.loads(request.body)
         try:
             if "location" in content:
-                location = LocationVO.objects.get(id=content["location"])
+                location = LocationVO.objects.get(import_href=content["location"])
                 content["location"] = location
         except LocationVO.DoesNotExist:
             return JsonResponse(
                 {"message": "Invalid location"},
                 status=400,
             )
-        LocationVO.objects.filter(id=pk).update(**content)
-        location = Location.objects.get(id=pk)
+        Hat.objects.filter(id=pk).update(**content)
+        hat = Hat.objects.get(id=pk)
         return JsonResponse(
-            location,
-            encoder=LocationDetailEncoder,
+            hat,
+            encoder=HatDetailEncoder,
             safe=False,
         )
