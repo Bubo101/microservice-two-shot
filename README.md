@@ -2,8 +2,8 @@
 
 Team:
 
-* Person 1 - Which microservice?
-* Person 2 - Which microservice?
+* Person 1 - Boden Bradley
+* Person 2 - Nikansha Maharaj
 
 ## Design
 
