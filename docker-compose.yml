@@ -26,7 +26,7 @@ services:
       context: ./wardrobe/api
       dockerfile: ./Dockerfile.dev
     ports:
-      - "8100:8000"
+      - "8100:8000" #number on the left is port for the comp & number on the right is docker network
     volumes:
       - ./wardrobe/api:/app
     depends_on:

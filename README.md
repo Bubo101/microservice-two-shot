@@ -2,8 +2,8 @@
 
 Team:
 
-* Person 1 - Which microservice?
-* Person 2 - Which microservice?
+* Boden Bradley - hats
+* Nikansha Maharaj - shoes
 
 ## Design
 
