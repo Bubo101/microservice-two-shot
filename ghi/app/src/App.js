@@ -4,10 +4,8 @@ import Nav from './Nav';
 import HatList from './hats';
 import HatForm from './newhat';
 
-function App(props) {
-  if (props.hats === undefined){
-    return null;
-  }
+function App() {
+
   return (
     <BrowserRouter>
       <Nav />
@@ -15,7 +13,7 @@ function App(props) {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="hats">
-            <Route path="list" element={<HatList hats={props.hats} />} />
+            <Route path="list" element={<HatList/>} />
           </Route>
           <Route path="hats">
             <Route path="new" element={<HatForm />} />
