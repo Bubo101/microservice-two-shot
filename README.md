@@ -2,8 +2,8 @@
 
 Team:
 
-* Boden Bradley - hats
-* Nikansha Maharaj - shoes
+* Person 1 - Boden Bradley
+* Person 2 - Nikansha Maharaj
 
 ## Design
 

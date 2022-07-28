@@ -31,7 +31,6 @@ ALLOWED_HOSTS = [
     "wardrobe-api", # for Docker
 ]
 
-
 # Application definition
 
 INSTALLED_APPS = [

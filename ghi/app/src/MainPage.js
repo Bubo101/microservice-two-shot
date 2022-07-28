@@ -1,4 +1,10 @@
 function MainPage() {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//     conferenceColumns: [[], [], []],
+//     };
+// }
   return (
     <div className="px-4 py-5 my-5 text-center">
       <h1 className="display-5 fw-bold">WARDROBIFY!</h1>
